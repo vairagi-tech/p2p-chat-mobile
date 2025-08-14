@@ -6,13 +6,24 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "demo": "node demo.js",
+    "test-protocol": "node -e \"import('./demo.js').then(m => m.runDemo())\""
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-navigation/native": "^7.1.17",
+    "@react-navigation/stack": "^7.4.7",
     "expo": "~53.0.20",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-native": "0.79.5"
+    "react-native": "0.79.5",
+    "react-native-crypto-js": "^1.0.0",
+    "react-native-fs": "^2.20.0",
+    "react-native-paper": "^5.14.5",
+    "react-native-tcp-socket": "^6.3.0",
+    "react-native-udp": "^4.1.7",
+    "react-native-vector-icons": "^10.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

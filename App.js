@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * P2P Chat Mobile App
+ * Decentralized messaging for React Native
+ */
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import SetupScreen from './src/screens/SetupScreen';
+import ChatScreen from './src/screens/ChatScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Setup"
+        screenOptions={{
+          headerShown: false,
+          gestureEnabled: true,
+          cardStyle: { backgroundColor: '#F5F5F5' },
+        }}
+      >
+        <Stack.Screen 
+          name="Setup" 
+          component={SetupScreen}
+          options={{
+            title: 'P2P Chat Setup',
+          }}
+        />
+        <Stack.Screen 
+          name="Chat" 
+          component={ChatScreen}
+          options={{
+            title: 'P2P Chat',
+            gestureEnabled: false, // Prevent swipe back from chat
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
